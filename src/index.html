@@ -1,13 +1,36 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-  <meta charset="utf-8">
-  <title>Shirt Store</title>
-  <base href="/">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <meta charset="UTF-8"/>
+  <title>Title</title>
+  <link rel="stylesheet"
+        href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+  <script src="https://kit.fontawesome.com/bad7e026c8.js" crossorigin="anonymous"></script>
 </head>
 <body>
-  <app-root></app-root>
+
+<div class="navbar">
+  <h1> ShirtStore </h1>
+
+  <p class="my-5"><a href="/home/view-index" class="btn btn-primary">Home<i class="fas fa-home"></i></a></p>
+  <p class="my-5"><a href="/cart/view-cart" class="btn btn-primary">My cart<i class="fas fa-cart-shopping"></i></a></p>
+
+
+  <!--    NEED TO GET FIXED ALL DROPDOWN-->
+  <div class="dropdown">
+    <button class="dropbtn">Product categories
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-content">
+      <a href="#">Women shirts</a>
+      <a href="#">Men shirts</a>
+      <a href="#">Kids shirts</a>
+    </div>
+
+  </div>
+  <p class="my-5"><a href="/contact/view-contact_us" class="btn btn-primary">Contact us<i class="btn"></i></a></p>
+  <p class="my-5"><a href="/login/view-login" class="btn btn-primary">Log in<i class="btn"></i></a></p>
+</div>
 </body>
 </html>

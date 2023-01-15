@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { faMapMarkerAlt, faPhoneAlt} from "@fortawesome/free-solid-svg-icons";
-import { Token } from 'src/app/models/Token';
-import { User } from 'src/app/models/User';
-import { UsersService } from 'src/app/services/user.service.spec';
+import { Token } from 'src/app/shared/models/Token';
+import { User } from 'src/app/shared/models/User';
+import {UsersService} from "../../shared/services/user.service";
+
 
 @Component({
   selector: 'app-user-detail',
@@ -63,7 +64,7 @@ export class UserDetailComponent implements OnInit {
 
   deleteUser () {
     if (window.confirm("Are you sure you want to delete?")) {
-      this.usersService.deleteUser(this.user.id.toString()).subscribe(res => {
+      this.usersService.deleteUser(this.user.id.toString()).subscribe(() => {
         this.logOut()
       })
     }

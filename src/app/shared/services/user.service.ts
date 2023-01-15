@@ -1,7 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { environment } from 'src/environments/environment';
 import { Token } from '../models/Token';
 import { User } from '../models/User';
 
@@ -14,7 +13,7 @@ export class UsersService {
 
   register (username : string, password : string, email : string, name : string, address : string,
             phone : string) : Observable<Token> {
-    return this.http.post<Token>(`${environment.API_URL}/register`, {
+    return this.http.post<Token>(`register`, {
       username,
       password,
       email,
@@ -25,28 +24,28 @@ export class UsersService {
   }
 
   login (username : string, password : string) : Observable<Token> {
-    return this.http.post<Token>(`${environment.API_URL}/login`, {
+    return this.http.post<Token>(`login`, {
       username,
       password,
     })
   }
 
   createToken (username : string) : Observable<Token> {
-    return this.http.post<Token>(`${environment.API_URL}/api/create-token`, {
+    return this.http.post<Token>(`api/create-token`, {
       username
     });
   }
 
   getUsers () : Observable<User[]> {
-    return this.http.get<User[]>(`${environment.API_URL}/api/users`);
+    return this.http.get<User[]>(`api/users`);
   }
 
   getUser (id : string) : Observable<User> {
-    return this.http.get<User>(`${environment.API_URL}/api/users/${id}`);
+    return this.http.get<User>(`api/users/${id}`);
   }
 
   getUserByToken () : Observable<User> {
-    return this.http.get<User>(`${environment.API_URL}/user`, {
+    return this.http.get<User>(`user`, {
       headers: new HttpHeaders({
         'Authorization': 'Bearer ' + localStorage.getItem('token'),
         'Content-Type': 'application/json'
@@ -55,7 +54,7 @@ export class UsersService {
   }
 
   updateUser (id : string, username : string, password : string, email : string, name : string, address : string, phone : string) : Observable<User> {
-    return this.http.put<User>(`${environment.API_URL}/api/users/${id}`, {
+    return this.http.put<User>(`api/users/${id}`, {
       username,
       password,
       email,
@@ -66,6 +65,6 @@ export class UsersService {
   }
 
   deleteUser (id : string) : Observable<any> {
-    return this.http.delete(`${environment.API_URL}/api/users/${id}`);
+    return this.http.delete(`api/users/${id}`);
   }
 }

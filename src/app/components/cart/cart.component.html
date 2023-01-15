@@ -7,7 +7,7 @@
   </style>
   <h1>Cart</h1>
   <table class="table mt-5">
-    <thead style="background-color: #23f602; border: none;" class="mb-5">
+    <thead style="background-color: #cb1190; border: none;" class="mb-5">
     <tr>
       <th scope="col">Name</th>
       <th scope="col">Price</th>
@@ -24,26 +24,26 @@
         <div class="d-flex" style="align-items: center;">
           <p style="margin-right: 1rem;">{{ item.quantity }}</p>
           <button class="bg-transparent">
-            <fa-icon
+<!--            <fa-icon
               [icon]="caretDown"
-              [style.color]="'#ffaae4'"
+              [style.color]="'#23f602'"
               class="mx-1"
               size="2x"
               (click)="decreaseQuantity(item)"
-            ></fa-icon>
+            ></fa-icon>-->
           </button>
           <button class="bg-transparent">
-            <fa-icon
+            <!--<fa-icon
               [icon]="caretUp"
               [style.color]="'#afa'"
               class="mx-1"
               size="2x"
               (click)="increaseQuantity(item)"
-            ></fa-icon>
+            ></fa-icon>-->
           </button>
         </div>
       </td>
-      <td>{{item.addedOn | date: 'MM/DD/YYYY'}}</td>
+      <td>{{item.addedOn | date: 'MM/dd/YYYY'}}</td>
       <td>${{item.totalPrice | number: '1.2-2'}}</td>
     </tr>
     </tbody>
@@ -53,7 +53,7 @@
       <td></td>
       <td></td>
       <td></td>
-      <td><h4 class="text-success font-weight-bold">${{getTotal() | number: '1.2-2'}}</h4></td>
+      <td><h4 class="text-success font-weight-bold">${{getTotal()}}</h4></td>
     </tr>
     <tr>
       <th scope="row"></th>

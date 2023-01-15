@@ -1,4 +1,7 @@
 export const environment = {
   production: false,
-  API_URL: "http://localhost:8080"
+  DefaultLanguage: 'en',
+  development: true,
+  environmentName: 'DEV',
+  baseURL: 'http://localhost:8080/',
 };

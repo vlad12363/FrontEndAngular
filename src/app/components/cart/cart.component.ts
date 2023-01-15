@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { faCaretUp, faCaretDown } from "@fortawesome/free-solid-svg-icons";
-import { CartItem } from 'src/app/models/CartItem';
-import { User } from 'src/app/models/User';
-import { CartItemsService } from 'src/app/services/cart-item.service';
-import { UsersService } from 'src/app/services/user.service';
+import { CartItem } from 'src/app/shared/models/CartItem';
+import { User } from 'src/app/shared/models/User';
+import { CartItemsService } from 'src/app/shared/services/cart-item.service';
+import { UsersService } from 'src/app/shared/services/user.service';
 
 @Component({
   selector: 'app-cart',
@@ -16,8 +16,8 @@ export class CartComponent implements OnInit {
   caretUp = faCaretUp;
   caretDown = faCaretDown;
 
-  user : User
-  cartItems : CartItem []
+  user: User;
+  cartItems: CartItem[] = [];
 
   constructor(
     private router : Router,
@@ -46,7 +46,7 @@ export class CartComponent implements OnInit {
   }
 
   getTotal () : Number {
-    var reducer = (acc, val) => acc + val;
+    let reducer = (acc: any, val: any) => acc + val;
     return this.cartItems ? this.cartItems.map((item) => item.totalPrice).reduce(reducer) : 0.0
   }
 

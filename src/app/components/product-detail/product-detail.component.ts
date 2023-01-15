@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Product } from 'src/app/models/Product';
-import { ProductsService } from 'src/app/services/products.service';
-import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
-import { User } from 'src/app/models/User';
-import { UsersService } from 'src/app/services/users.service';
-import { CartItemsService } from 'src/app/services/cart-items.service';
+import { Product } from 'src/app/shared/models/Product';
+import { User } from 'src/app/shared/models/User';
+
+import {UsersService} from "../../shared/services/user.service";
+import {CartItemsService} from "../../shared/services/cart-item.service";
+import {ProductService} from "../../shared/services/product.service";
 
 @Component({
   selector: 'app-product-detail',
@@ -19,7 +19,7 @@ export class ProductDetailComponent implements OnInit {
 
   constructor(
     private route : ActivatedRoute,
-    private productsService : ProductsService,
+    private productsService : ProductService,
     private usersService : UsersService,
     private cartItemsService : CartItemsService
   ) { }
@@ -27,8 +27,7 @@ export class ProductDetailComponent implements OnInit {
   ngOnInit(): void {
     this.productsService.getProduct(this.route.snapshot.paramMap.get('id')).subscribe((product : Product) => {
       this.product = product
-      this.product.imageUrl = product.image ? 'data:image/jpeg;base64,' + product.image :
-        "../../../assets/static/images/product-placeholder.png";
+      this.product.imageUrl = "../../../assets/static/images/product-placeholder.png";
     }, (error: ErrorEvent) => {
       console.log(this.product);
     })

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
-import { Token } from 'src/app/models/Token';
-import { UsersService } from 'src/app/services/user.service';
+import { Token } from 'src/app/shared/models/Token';
+import { UsersService } from 'src/app/shared/services/user.service';
 
 @Component({
   selector: 'app-login',
